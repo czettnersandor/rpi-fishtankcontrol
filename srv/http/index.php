@@ -7,7 +7,7 @@ function checked($gpio) {
     if (isset($_POST['submit'])) {
         if (isset($_POST['gpio']) && in_array($gpio, $_POST['gpio'])) {
             return 'checked="1"';
-        } else { 
+        } else {
             return '';
         }
     } else {
@@ -73,14 +73,19 @@ if (isset($_POST['submit'])) {
     <input type="checkbox" name="gpio[]" value="2" <?php echo checked(2) ?>> 2<br/>
     <input type="checkbox" name="gpio[]" value="3" <?php echo checked(3) ?>> 3<br/>
 
-    <p>Water temperature: C</p>
-    
+    <p>Water temperature: <strong><?php echo file_get_contents('data/temperature'); ?></strong>C</p>
+
     <input type="submit" value="Submit" name="submit">
 </form>
 
 <br/>
+<h2>Lights</h2>
 <img src="data/light-1d.png" />
 <img src="data/light-1w.png" />
+
+<h2>Temperature</h2>
+<img src="data/temperature-1d.png" />
+<img src="data/temperature-1w.png" />
 
 </body>
 
